@@ -1,6 +1,6 @@
 function Ship() {
   this.pos = createVector(width/2, height/2);
-  this.r = 20;
+  this.r = 10;
   this.heading = 0;
   this.rotation = 0;
   this.vel = createVector(0, 0);
@@ -20,7 +20,7 @@ function Ship() {
   
   this.boost = function() {
     var force = p5.Vector.fromAngle(this.heading);
-    force.mult(0.1);
+    force.mult([0.1 + speedy]*dirx);
     this.vel.add(force);
   }
   
@@ -42,6 +42,8 @@ function Ship() {
     fill(0);
     stroke(255);
     triangle(-this.r, this.r, this.r, this.r, 0, -this.r);
+    image(nave,0-20,-20, 40, 40) 
+    image(laizer,0,-111,1,100)
     pop();
   }
   
